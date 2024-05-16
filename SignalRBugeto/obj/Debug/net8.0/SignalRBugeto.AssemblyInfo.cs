@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SignalRBugeto")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+136ad169a9a763472dbb6383e9e3bb7c450f9138")]
 [assembly: System.Reflection.AssemblyProductAttribute("SignalRBugeto")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SignalRBugeto")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
