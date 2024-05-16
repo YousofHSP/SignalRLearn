@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "blc4YxENwDGXKkwC9edbEwx0uiK25rtKQJKjiwNcKJ5T5Os4/sXRB57TPSGGRjIwY0aG/+c0lsDKN9wJD66xrg==",
+  "dgSpecHash": "/koQEH046PrEtpXHJhNnKlpdyhMj7ibwM3ESwMD5n1l4DIcbJVfKbPhMg5pD5FMYIXYOkMP+xshvRJQ8ihf+Vg==",
   "success": true,
-  "projectFilePath": "E:\\Projects\\Learn\\Asp\\SignalRBugeto\\SignalRBugeto\\SignalRBugeto.csproj",
+  "projectFilePath": "E:\\Projects\\Learn\\Asp\\SignalRBugeto\\SignalRLearn\\SignalRLearn.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Yousof\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\6.0.0\\microsoft.aspnetcore.mvc.razor.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\Yousof\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\8.0.5\\microsoft.aspnetcore.mvc.razor.runtimecompilation.8.0.5.nupkg.sha512",

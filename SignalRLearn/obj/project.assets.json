@@ -940,11 +940,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\Learn\\Asp\\SignalRBugeto\\SignalRBugeto\\SignalRBugeto.csproj",
-      "projectName": "SignalRBugeto",
-      "projectPath": "E:\\Projects\\Learn\\Asp\\SignalRBugeto\\SignalRBugeto\\SignalRBugeto.csproj",
+      "projectUniqueName": "E:\\Projects\\Learn\\Asp\\SignalRBugeto\\SignalRLearn\\SignalRLearn.csproj",
+      "projectName": "SignalRLearn",
+      "projectPath": "E:\\Projects\\Learn\\Asp\\SignalRBugeto\\SignalRLearn\\SignalRLearn.csproj",
       "packagesPath": "C:\\Users\\Yousof\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\Learn\\Asp\\SignalRBugeto\\SignalRBugeto\\obj\\",
+      "outputPath": "E:\\Projects\\Learn\\Asp\\SignalRBugeto\\SignalRLearn\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Yousof\\AppData\\Roaming\\NuGet\\NuGet.Config"

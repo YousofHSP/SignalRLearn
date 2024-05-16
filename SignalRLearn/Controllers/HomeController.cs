@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using SignalRBugeto.Models;
+using SignalRLearn.Models;
 
-namespace SignalRBugeto.Controllers;
+namespace SignalRLearn.Controllers;
 
 public class HomeController : Controller
 {

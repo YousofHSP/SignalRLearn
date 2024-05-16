@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 
-namespace SignalRBugeto.Hubs;
+namespace SignalRLearn.Hubs;
 
 public class SiteChatHub: Hub
 {

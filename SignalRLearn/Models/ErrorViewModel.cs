@@ -1,4 +1,4 @@
-namespace SignalRBugeto.Models;
+namespace SignalRLearn.Models;
 
 public class ErrorViewModel
 {

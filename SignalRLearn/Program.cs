@@ -1,4 +1,4 @@
-using SignalRBugeto.Hubs;
+using SignalRLearn.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
