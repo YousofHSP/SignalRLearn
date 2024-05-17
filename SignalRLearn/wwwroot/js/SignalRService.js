@@ -21,8 +21,16 @@ function init(){
     
 }
 
+// send message to server
 function sendMessage(text) {
     connection.invoke('SendNewMessage',"بازدید کننده", text);
+}
+
+//receive message from server
+connection.on("receiveNewMessage", receiveNewMessage);
+
+function receiveNewMessage(sender, message, time) {
+    $("#Messages").append(`<li><div><span class="name">${sender}</span><span class="time">${time}</span></div><div class="message">${message}</div></li>`)
 }
 $(document).ready(function(){
     init()
