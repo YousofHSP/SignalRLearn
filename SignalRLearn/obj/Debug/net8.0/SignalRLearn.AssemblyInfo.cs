@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SignalRLearn")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a119632ac95eef5ba99aa7559363d62db432d82d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+78fc5e7b0aaf94835e96ac6a4ef98a1658813111")]
 [assembly: System.Reflection.AssemblyProductAttribute("SignalRLearn")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SignalRLearn")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,4 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using SignalRLearn.Context;
 using SignalRLearn.Hubs;
+using SignalRLearn.Models.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +11,11 @@ var mvcBuilder = builder.Services.AddControllersWithViews();
 mvcBuilder.AddRazorRuntimeCompilation();
 #endif
 builder.Services.AddSignalR();
-
+builder.Services.AddDbContext<DataBaseContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
+});
+builder.Services.AddScoped<IChatRoomService, ChatRoomService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -23,7 +23,7 @@ function init(){
 
 // send message to server
 function sendMessage(text) {
-    connection.invoke('SendNewMessage',"بازدید کننده", text);
+    connection.invoke('SendNewMessage', "client", text).then(r => console.log("done"));
 }
 
 //receive message from server
