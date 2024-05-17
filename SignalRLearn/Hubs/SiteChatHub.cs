@@ -9,6 +9,7 @@ public class SiteChatHub: Hub
 
     public async Task SendNewMessage(string sender, string message)
     {
+        Console.WriteLine($"sender => {sender} , message => {message}");
         await Clients.All.SendAsync("getNewMessage", sender, message, DateTime.Now);
     }
     
