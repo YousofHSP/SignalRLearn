@@ -8,6 +8,7 @@ public interface IChatRoomService
 {
     Task<Guid> CreateChatRoom(string connectionId);
     Task<Guid> GetChatRoomForConnection(string connectionId);
+    Task<List<Guid>> GetAllRooms();
 }
 
 public class ChatRoomService : IChatRoomService
@@ -39,5 +40,11 @@ public class ChatRoomService : IChatRoomService
     {
         var model = await _context.ChatRooms.SingleOrDefaultAsync(i => i.ConnectionId == connectionId);
         return model!.Id;
+    }
+
+    public async Task<List<Guid>> GetAllRooms()
+    {
+        var rooms = await _context.ChatRooms.Select(p => p.Id).ToListAsync();
+        return rooms;
     }
 }
