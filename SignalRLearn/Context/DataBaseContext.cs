@@ -10,4 +10,5 @@ public class DataBaseContext: DbContext
         
     }
     public DbSet<ChatRoom> ChatRooms { get; set; }
+    public DbSet<User> Users { get; set; }
 }

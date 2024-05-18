@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using SignalRLearn.Context;
 using SignalRLearn.Hubs;
@@ -16,6 +17,13 @@ builder.Services.AddDbContext<DataBaseContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
 });
 builder.Services.AddScoped<IChatRoomService, ChatRoomService>();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+}).AddCookie(options =>
+{
+    options.LoginPath = "/Home/Login";
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,6 +39,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
