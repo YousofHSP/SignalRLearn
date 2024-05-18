@@ -10,15 +10,24 @@ public class SiteChatHub: Hub
     // OnDisconnectedAsync() --> when client disconnected from hub
 
     private readonly IChatRoomService _service;
+    private readonly IMessageService _messageService;
 
-    public SiteChatHub(IChatRoomService service)
+    public SiteChatHub(IChatRoomService service, IMessageService messageService)
     {
         _service = service;
+        _messageService = messageService;
     }
 
     public async Task SendNewMessage(string sender, string message)
     {
         var roomId = await _service.GetChatRoomForConnection(Context.ConnectionId);
+        var messageDto = new MessageDto()
+        {
+            Message = message,
+            Sender = sender,
+            Time = DateTime.Now
+        };
+        await _messageService.SaveChatMessage(roomId, messageDto);
         await Clients.Groups(roomId.ToString()).SendAsync("receiveNewMessage", sender, message, DateTime.Now.ToShortDateString());
     }
     
