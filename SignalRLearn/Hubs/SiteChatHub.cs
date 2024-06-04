@@ -4,36 +4,32 @@ using SignalRLearn.Models.Services;
 
 namespace SignalRLearn.Hubs;
 
-public class SiteChatHub: Hub
+public class SiteChatHub(IChatRoomService service, IMessageService messageService) : Hub
 {
     // OnConnectedAsync() --> when client connected to hub
     // OnDisconnectedAsync() --> when client disconnected from hub
 
-    private readonly IChatRoomService _service;
-    private readonly IMessageService _messageService;
-
-    public SiteChatHub(IChatRoomService service, IMessageService messageService)
-    {
-        _service = service;
-        _messageService = messageService;
-    }
-
     public async Task SendNewMessage(string sender, string message)
     {
-        var roomId = await _service.GetChatRoomForConnection(Context.ConnectionId);
+        var roomId = await service.GetChatRoomForConnection(Context.ConnectionId);
         var messageDto = new MessageDto()
         {
             Message = message,
             Sender = sender,
             Time = DateTime.Now
         };
-        await _messageService.SaveChatMessage(roomId, messageDto);
+        await messageService.SaveChatMessage(roomId, messageDto);
         await Clients.Groups(roomId.ToString()).SendAsync("receiveNewMessage", sender, message, DateTime.Now.ToShortDateString());
     }
     
     public override async Task OnConnectedAsync()
     {
-        var roomId = await _service.CreateChatRoom(Context.ConnectionId);
+        if (Context.User.Identity.IsAuthenticated)
+        {
+            await base.OnConnectedAsync();
+            return;
+        }
+        var roomId = await service.CreateChatRoom(Context.ConnectionId);
         await Groups.AddToGroupAsync(Context.ConnectionId, roomId.ToString());
         await Clients.Caller.SendAsync("receiveNewMessage", "support", "hi. how can we help you?", DateTime.Now.ToShortDateString());
         await base.OnConnectedAsync();

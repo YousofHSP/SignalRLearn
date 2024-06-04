@@ -25,6 +25,17 @@ builder.Services.AddAuthentication(options =>
 {
     options.LoginPath = "/Home/Login";
 });
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        b =>
+        {
+            b.WithOrigins("https://example.com")
+                .AllowAnyHeader()
+                .WithMethods("GET", "POST")
+                .AllowCredentials();
+        });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -43,6 +54,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseCors();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

@@ -1,6 +1,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <style>
     #chatMessage{
@@ -43,16 +44,11 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div id="roomList" class="list-group">
-            
+        <div class="col-md-4">
+            <div id="roomList" class="list-group">
+                
+            </div>
         </div>
     </div>
 </div>
-
-@section Scripts
-{
-<script src="~/js/SupportSignalRService.js"></script>
-}
 
