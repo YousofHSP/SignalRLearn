@@ -3,13 +3,19 @@
 let supportConnection = new signalR.HubConnectionBuilder()
     .withUrl("/supporthub")
     .build();
+let chatConnection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .build();
 
-function init() {
+function init() {   
     supportConnection.start();
+    chatConnection.start();
 }
 $(document).ready(function(){
     init();
 })
+
+chatConnection.on("receiveNewMessage", showMessage)
 
 supportConnection.on('getNewMessage', addMessages);
 
@@ -64,7 +70,10 @@ function setActiveRoomButton(el) {
 function switchActiveRoomTo(id) {
     if(id === activeRoomId) return;
     removeAllChildren(roomMessageEl)
+    if(activeRoomId)
+        chatConnection.invoke("LeaveRoom", activeRoomId)
     activeRoomId = id;
+    chatConnection.invoke("JoinRoom", activeRoomId)
     supportConnection.invoke('LoadMessage', activeRoomId);
     
 }
