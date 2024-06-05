@@ -44,7 +44,10 @@ public class ChatRoomService : IChatRoomService
 
     public async Task<List<Guid>> GetAllRooms()
     {
-        var rooms = await _context.ChatRooms.Select(p => p.Id).ToListAsync();
+        var rooms = await _context.ChatRooms
+            .Include(p => p.ChatMessages)
+            .Where(p => p.ChatMessages.Any())
+            .Select(p => p.Id).ToListAsync();
         return rooms;
     }
 }

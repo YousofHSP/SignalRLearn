@@ -10,6 +10,19 @@ let chatConnection = new signalR.HubConnectionBuilder()
 function init() {   
     supportConnection.start();
     chatConnection.start();
+    
+    let answerForm = $("#answerForm");
+    answerForm.on("submit", function(e){
+        e.preventDefault()
+        let text = e.target[0].value;
+        e.target[0].value = '';
+        sendMessage(text);
+    })
+}
+
+function sendMessage(text) {
+    if(text && text.length)
+        supportConnection.invoke("SendMessage", activeRoomId, text);
 }
 $(document).ready(function(){
     init();
@@ -37,10 +50,8 @@ function loadRooms(rooms) {
     if(!rooms) return;
     let roomIds = Object.keys(rooms)
     
-    console.log(roomIds)
     removeAllChildren(roomListEl)
     roomIds.forEach((id) => {
-        console.log(id)
         let roomInfo = rooms[id]
         if(!roomInfo) return;
         
